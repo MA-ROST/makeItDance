@@ -22,12 +22,6 @@ class ofApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
-		int x = ofGetMouseX();
-		int y = ofGetMouseY();
-
-		const ofColor c1{ 255, 0, 0 };
-		const ofColor c2{ 255, 0, 0 };
-
 		Drawing drawing;
 		
 };

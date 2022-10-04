@@ -27,30 +27,26 @@ void Drawing::drawBulb () const
 
 void Drawing::drawLamp () const
 {
-	int lampX{ 800 };
-	int lampY{ 250 };
+	// General reference location for the lamp
+	int lampX{800}, lampY{250};
 
-	drawBulb ();
+	drawBulb();
 	// -- Chain
 	ofNoFill();
-	ofSetLineWidth(4);
-	ofSetColor(grey5);
-	for (int i = 0; i < 9; ++i) {
-		ofDrawCircle(800, (10 * 2) * i, 10);
-	}
+	ofSetLineWidth (4);
+	ofSetColor (grey5);
+	for ( int i = 0; i < 9; ++i ) ofDrawCircle (800, (10 * 2) * i, 10);
 	ofFill();
 	// -- Cover
-	ofSetColor(grey15);
-	
-	ofDrawTriangle(lampX - 75, lampY, 
-	               lampX + 75, lampY, 
-	               lampX,		  lampY-85);
+	ofSetColor (grey15);
+	ofDrawTriangle (lampX - 75, lampY, lampX + 75, lampY, lampX, lampY - 85);
 	// -- Rays
-	if (isLightOn) {
-		ofSetColor(ofColor::yellow);
-		ofSetLineWidth(2);
+	// If the light is on, show the rays
+	if ( isLightOn ) {
+		ofSetColor (ofColor::yellow);
+		ofSetLineWidth (2);
 		ofDrawLine (lampX - 50, 290, lampX - 125, 400);
-		ofDrawLine (lampX,	   300, lampX,       450);
+		ofDrawLine (lampX, 300, lampX, 450);
 		ofDrawLine (lampX + 50, 290, lampX + 125, 400);
 	}
 	

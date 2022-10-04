@@ -27,7 +27,8 @@ void ofApp::draw() {
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
-	if (key == 32) {
+	if (key == 32) { // If user presses spacebar
+		//Toggle if the light is on or not
 		if (drawing.isLightOn) drawing.isLightOn = false;
 		else				   drawing.isLightOn = true;
 	}
