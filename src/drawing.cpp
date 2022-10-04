@@ -6,8 +6,9 @@ void Drawing::drawBackground () const
 		const int divisionsBG{ 6 };
 		for (int i = 0; i < divisionsBG; ++i) {
 			// Lowers the opacity as the background generates
-			ofSetColor(ofColor::black, 200 - ((200 / divisionsBG) * i));
-			ofDrawRectangle((i * ofGetWidth() / divisionsBG), 0, ofGetWidth() / divisionsBG, ofGetHeight());
+			ofSetColor(ofColor::black, 200 - 200 / divisionsBG * i);
+			ofDrawRectangle (i * ofGetWidth() / divisionsBG, 0,
+			                 ofGetWidth() / divisionsBG, ofGetHeight());
 		}
 	}
 	else {
