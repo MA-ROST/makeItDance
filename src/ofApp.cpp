@@ -19,11 +19,10 @@ void ofApp::draw() {
 	drawing.drawEyes();
 	drawing.drawIris(ofGetMouseX(), ofGetMouseY());
 
-	ofSetColor(ofColor::yellow);
+	ofSetColor(ofColor::yellow, 50);
 	ofDrawBitmapString(
-		"X: " + std::to_string(ofGetMouseX()) + " " +
-		"Y: " + std::to_string(ofGetMouseY()),
-		10, 40);
+		"Press Space or Move your mouse",
+		20, 20);
 }
 
 //--------------------------------------------------------------
