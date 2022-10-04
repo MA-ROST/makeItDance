@@ -2,18 +2,17 @@
 
 void Drawing::drawBackground () const
 {
-	
-
 	if (isLightOn) {
 		const int divisionsBG{ 6 };
 		for (int i = 0; i < divisionsBG; ++i) {
 			// Lowers the opacity as the background generates
-			ofSetColor(ofColor::black, 225 - ((225 / divisionsBG) * i));
-			ofDrawRectangle((i * ofGetWidth() / divisionsBG), 0, ofGetWidth() / divisionsBG, ofGetHeight());
+			ofSetColor(ofColor::black, 200 - ((200 / divisionsBG) * i));
+			ofDrawRectangle (i * ofGetWidth() / divisionsBG, 0,
+			                 ofGetWidth() / divisionsBG, ofGetHeight());
 		}
 	}
 	else {
-		ofSetColor(ofColor::black);
+		ofSetColor(ofColor::black, 200);
 		ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight());
 	}
 }
@@ -21,7 +20,6 @@ void Drawing::drawBackground () const
 void Drawing::drawBulb () const
 {
 	// -- Bulb
-	
 	if (isLightOn) ofSetColor(ofColor::yellow);
 	else		   ofSetColor(ofColor::black);
 	ofDrawCircle(800, 250, 25);
@@ -80,6 +78,12 @@ void Drawing::drawIris (const int& mouseX, const int& mouseY) const
 	// Make the irises follow the mouse while constraining them to the eyes.
 	// Using a gap of 100 the left iris is shifted to the left eye
 	ofSetColor(ofColor::black); //270 - 330 , 355 - 375
-	ofDrawEllipse(ofClamp(mouseX, 270, 320) , ofClamp(mouseY, 355, 375), 40, 40);    // rIris
-	ofDrawEllipse(ofClamp(mouseX, 270, 320)-100, ofClamp(mouseY, 355, 375), 40, 40); // lIris
+	// rIris
+	ofDrawEllipse(ofMap(mouseX, 0, ofGetWidth(), 280, 320),       
+	              ofMap(mouseY, 0, ofGetHeight(), 355, 375), 
+	              40, 40); 
+	// lIris
+	ofDrawEllipse (ofMap (mouseX, 0, ofGetWidth(), 280, 320) - 100,
+	               ofMap (mouseY, 0, ofGetHeight(), 355, 375), 
+	               40, 40); 
 }
